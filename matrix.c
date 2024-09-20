@@ -72,7 +72,7 @@ void matrix_print(FILE *f, matrix m)
   if(!m.ok)
     fprintf(f, "Invalid matrix\n");
   else {
-    for(unsigned i=0; i<m.n1; ++i) {
+    for(unsigned i=0; i<m.n1; ++i)
       for(unsigned j=0; j<m.n2; ++j)
         fprintf(
             f, 
@@ -81,4 +81,31 @@ void matrix_print(FILE *f, matrix m)
       fprintf(f, "\n");
     }
   }
+}
+
+matrix mult_matrix(mat a, mat b){
+  int n = a.n1, m = a.n2, p = b.n2;
+  matrix mat = {0,0,true,NULL};
+
+  int i,j;
+
+    for(i = 0; i < n; i++){
+
+        for(j = 0; j < p; j++){
+
+            int k;
+            double s = 0;
+
+            for(k = 0; k < m; k++){
+
+                s += a.scalar[i*m + k]*b.scalar[k*p + j];
+
+            };
+
+            mat.scalar = &s;
+
+        }
+    }
+
+    return mat;
 }
