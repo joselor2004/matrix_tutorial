@@ -83,7 +83,7 @@ void matrix_print(FILE *f, matrix m)
   }
 }
 
-matrix scalar_matrix(matrix m, scalar v) {
+matrix scal_matrix(matrix m, scalar v) {
   for(int i = 0; i < m.n1 * m.n2; i++) {
     m.data[i] *= v;
   }
