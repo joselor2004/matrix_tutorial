@@ -114,3 +114,17 @@ matrix scal_matrix(matrix m, scalar v) {
     m.data[i] *= v;
   }
 }
+
+matrix exp_matrix(matrix a, int n)
+{
+  if (n == 0)
+    return matrix_identity(a.n1);
+  else
+  {
+    matrix res = exp_matrix(a, n/2);
+    if (n % 2 == 0)
+      return mult_matrix(res, res);
+    else
+      return mult_matrix(res, mult_matrix(res, res));
+  }
+}

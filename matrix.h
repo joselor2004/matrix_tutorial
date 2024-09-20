@@ -24,4 +24,7 @@ matrix add_matrix(matrix m, matrix n);
 matrix mult_matrix(matrix a, matrix b);
 
 matrix scal_matrix(matrix m, scalar v);
+
+matrix exp_matrix(matrix a, int n);
+
 #endif /* MATRIX_H */
