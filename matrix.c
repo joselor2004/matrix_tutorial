@@ -80,10 +80,9 @@ void matrix_print(FILE *f, matrix m)
             *matrix_get(m, i, j));
       fprintf(f, "\n");
     }
-  }
 }
 
-matrix mult_matrix(mat a, mat b){
+matrix mult_matrix(matrix a, matrix b){
   int n = a.n1, m = a.n2, p = b.n2;
   matrix mat = {0,0,true,NULL};
 
@@ -98,11 +97,11 @@ matrix mult_matrix(mat a, mat b){
 
             for(k = 0; k < m; k++){
 
-                s += a.scalar[i*m + k]*b.scalar[k*p + j];
+                s += a.data[i*m + k]*b.data[k*p + j];
 
             };
 
-            mat.scalar = &s;
+            mat.data = &s;
 
         }
     }
