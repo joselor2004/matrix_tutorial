@@ -82,3 +82,17 @@ void matrix_print(FILE *f, matrix m)
     }
   }
 }
+
+matrix exp_rapide(matrix a, int n)
+{
+  if (n == 0)
+    return matrix_identity(a.n1);
+  else
+  {
+    matrix res = exp_rapide(a, n/2);
+    if (n % 2 == 0)
+      return mult_matrix(res, res);
+    else
+      return mult_matrix(res, mult_matrix(res, res));
+  }
+}

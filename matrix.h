@@ -22,5 +22,6 @@ void matrix_print(FILE *f, matrix m);
 matrix add_matrix(matrix m, matrix n);
 
 matrix mult_matrix(matrix a, matrix b);
+matrix exp_rapide(matrix a, int n);
 
 #endif /* MATRIX_H */
